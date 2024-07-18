@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "678241185049",
+    "project_id": "wavetoday-news",
+    "storage_bucket": "wavetoday-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678241185049:android:2732b2cc32dc5424d06988",
+        "android_client_info": {
+          "package_name": "com.example.wavetoday"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyHah95cJyMU8si5_0uBLL83tHKwtJ7Yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
