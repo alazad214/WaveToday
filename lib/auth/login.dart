@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:wavetoday/auth/register_screen.dart';
-import 'package:wavetoday/controllers/login_controller.dart';
-
+import 'package:wavetoday/auth/register.dart';
+import 'package:wavetoday/controller/auth_controller.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-  final controller=Get.put(LoginController());
+  final controller=Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.amberAccent),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     CustomButton(
                       text: "Log in",
                       ontap: () {

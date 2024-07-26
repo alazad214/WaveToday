@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:wavetoday/auth/login_screen.dart';
-import 'package:wavetoday/controllers/register_controller.dart';
+import 'package:wavetoday/auth/login.dart';
+import 'package:wavetoday/controller/auth_controller.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textfield.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
-  final controller = Get.put(RegisterController());
+  final controller = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {

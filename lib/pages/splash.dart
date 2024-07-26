@@ -16,7 +16,7 @@ class SplashPage extends StatelessWidget {
       if (user == null) {
         Get.offAll(() => LoginScreen());
       } else {
-        Get.offAll(() => const Homepage());
+        Get.offAll(() =>  Homepage());
       }
     });
 
