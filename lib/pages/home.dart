@@ -40,9 +40,7 @@ class Homepage extends StatelessWidget {
           ],
         ),
         body: Column(
-          children: [
-            Sliders()
-          ],
+          children: [Sliders()],
         ));
   }
 }
