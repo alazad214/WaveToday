@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:wavetoday/auth/login/login_screen.dart';
+import 'package:wavetoday/auth/login_screen.dart';
 import 'package:wavetoday/controllers/register_controller.dart';
-import '../../widgets/custom_button.dart';
-import '../../widgets/custom_textfield.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/custom_textfield.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
-final controller=Get.put(AuthController());
+  final controller = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ final controller=Get.put(AuthController());
                     CustomTextfield(
                       hinttext: "Enter your email",
                       onchanged: (email) {
-                        controller.email.value=email;
+                        controller.email.value = email;
                       },
                     ),
                     CustomTextfield(
@@ -70,7 +70,7 @@ final controller=Get.put(AuthController());
                       issecured: true,
                       icon: const Icon(Icons.remove_red_eye),
                       onchanged: (password) {
-                        controller.password.value=password;
+                        controller.password.value = password;
                       },
                     ),
                     CustomTextfield(
@@ -78,7 +78,7 @@ final controller=Get.put(AuthController());
                       issecured: true,
                       icon: const Icon(Icons.remove_red_eye),
                       onchanged: (confirmpassword) {
-                        controller.confirmpassword.value=confirmpassword;
+                        controller.confirmpassword.value = confirmpassword;
                       },
                     ),
                     const SizedBox(height: 10),
@@ -100,7 +100,7 @@ final controller=Get.put(AuthController());
                     onTap: () {
                       Get.offAll(() => LoginScreen());
                     },
-                    child: const Text(" Login",
+                    child: const Text("Login",
                         style: TextStyle(
                             color: Colors.amberAccent,
                             fontWeight: FontWeight.w600,

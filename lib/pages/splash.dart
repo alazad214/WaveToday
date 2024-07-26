@@ -1,18 +1,23 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wavetoday/auth/login/login_screen.dart';
+import 'package:wavetoday/auth/login.dart';
 
-import 'homepage.dart';
+import 'home.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Timer set for 50 seconds
-    Timer(const Duration(seconds: 3), () {
-      Get.offAll(() =>  LoginScreen());
+    final user = FirebaseAuth.instance.currentUser;
+    Future.delayed(const Duration(seconds: 4), () {
+      if (user == null) {
+        Get.offAll(() => LoginScreen());
+      } else {
+        Get.offAll(() => const Homepage());
+      }
     });
 
     final screenSize = MediaQuery.of(context).size;

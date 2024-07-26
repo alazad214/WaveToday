@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:wavetoday/auth/signup/register_screen.dart';
-import '../../widgets/custom_button.dart';
-import '../../widgets/custom_textfield.dart';
+import 'package:wavetoday/auth/register_screen.dart';
+import 'package:wavetoday/controllers/login_controller.dart';
+
+import '../widgets/custom_button.dart';
+import '../widgets/custom_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
+  final controller=Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +62,17 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     CustomTextfield(
                       hinttext: "Enter your email",
-                      onchanged: (email) {},
+                      onchanged: (email) {
+                        controller.email.value=email;
+                      },
                     ),
                     CustomTextfield(
                       hinttext: "Enter your password",
                       issecured: true,
                       icon: const Icon(Icons.remove_red_eye),
-                      onchanged: (password) {},
+                      onchanged: (password) {
+                        controller.password.value=password;
+                      },
                     ),
                     const Align(
                       alignment: Alignment.centerRight,
@@ -76,7 +84,9 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(height: 10),
                     CustomButton(
                       text: "Log in",
-                      ontap: () {},
+                      ontap: () {
+                        controller.login();
+                      },
                     )
                   ],
                 ),
