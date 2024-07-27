@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:wavetoday/model/news_model.dart';
+import 'package:wavetoday/widgets/shimmer.dart';
 
 import '../service/news_service.dart';
 import '../utils/app_color.dart';
@@ -93,10 +94,7 @@ class BreakingNews extends StatelessWidget {
                 itemCount: articleModel.length,
               );
             } else {}
-            return const Center(
-                child: Center(
-              child: Text("No data found"),
-            ));
+            return Shimmer();
           }),
     );
   }

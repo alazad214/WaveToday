@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:wavetoday/widgets/PopupMenu.dart';
+import 'package:wavetoday/widgets/all_news.dart';
 import 'package:wavetoday/widgets/breaking_news.dart';
+import 'package:wavetoday/widgets/shimmer.dart';
 import 'package:wavetoday/widgets/sliders.dart';
 
 class Homepage extends StatelessWidget {
@@ -62,9 +64,7 @@ class Homepage extends StatelessWidget {
               Flexible(
                   child: TabBarView(children: [
                 BreakingNews(),
-                Container(
-                  color: Colors.red,
-                ),
+                    AllNews()
               ]))
             ],
           )),

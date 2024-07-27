@@ -44,6 +44,8 @@ dependencies:
   firebase_messaging:
   another_carousel_pro: ^1.0.2
   cached_network_image:
+  carousel_slider: ^4.2.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +82,7 @@ flutter:
   assets:
     - assets/images/icon/
     - assets/images/
+    - assets/anim/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
