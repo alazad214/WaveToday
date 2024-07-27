@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:wavetoday/model/news_model.dart';
 import 'package:wavetoday/widgets/shimmer.dart';
 
+import '../pages/news_details.dart';
 import '../service/news_service.dart';
 import '../utils/app_color.dart';
 
@@ -21,7 +24,9 @@ class BreakingNews extends StatelessWidget {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => NewsDetails(newsModel: articleModel[index]));
+                    },
                     child: Container(
                       height: 110,
                       clipBehavior: Clip.antiAlias,
