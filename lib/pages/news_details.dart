@@ -1,19 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wavetoday/utils/app_color.dart';
 
+import '../controller/theme_controller.dart';
 import '../model/news_model.dart';
 
-class NewsDetails extends StatefulWidget {
+class NewsDetails extends StatelessWidget {
   final NewsModel newsModel;
-  const NewsDetails({super.key, required this.newsModel});
-
-  @override
-  State<NewsDetails> createState() => _NewsDetailsState();
-}
-
-class _NewsDetailsState extends State<NewsDetails> {
+  NewsDetails({super.key, required this.newsModel});
+  final ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +27,7 @@ class _NewsDetailsState extends State<NewsDetails> {
             )),
         backgroundColor: AppColor.navyC,
         title: Text(
-          widget.newsModel.title.toString(),
+          newsModel.title.toString(),
           style: const TextStyle(
               color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
@@ -41,10 +39,10 @@ class _NewsDetailsState extends State<NewsDetails> {
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
-            imageUrl: widget.newsModel.urlToImage.toString(),
+            imageUrl: newsModel.urlToImage.toString(),
             placeholder: (context, url) =>
                 const Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           Padding(
             padding:
@@ -59,19 +57,21 @@ class _NewsDetailsState extends State<NewsDetails> {
                 ),
                 Flexible(
                   child: Text(
-                    widget.newsModel.title.toString(),
+                    newsModel.title.toString(),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
-                    style: const TextStyle(
-                        color: Colors.black,
+                    style: TextStyle(
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                        color: themeController.isDark.value
+                            ? Colors.white
+                            : Colors.black),
                   ),
                 )
               ],
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Flexible(
               child: Text(
@@ -79,7 +79,9 @@ class _NewsDetailsState extends State<NewsDetails> {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
                 style: TextStyle(
-                    color: AppColor.navyC,
+                    color: themeController.isDark.value
+                        ? Colors.white
+                        : Colors.black,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
@@ -88,8 +90,12 @@ class _NewsDetailsState extends State<NewsDetails> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              widget.newsModel.content.toString(),
-              style: const TextStyle(fontSize: 16, color: Colors.black),
+              newsModel.content.toString(),
+              style: TextStyle(
+                  fontSize: 16,
+                  color: themeController.isDark.value
+                      ? Colors.white
+                      : Colors.black),
             ),
           ),
           const SizedBox(
@@ -109,7 +115,7 @@ class _NewsDetailsState extends State<NewsDetails> {
                       horizontal: 32, vertical: 16), // Padding
                 ),
                 onPressed: () async {
-                  final Uri url = Uri.parse(widget.newsModel.url.toString());
+                  final Uri url = Uri.parse(newsModel.url.toString());
                   if (!await launchUrl(url)) {
                     throw Exception('Could not launch $url');
                   }
