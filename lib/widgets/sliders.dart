@@ -1,4 +1,5 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:wavetoday/service/news_service.dart';
@@ -23,18 +24,37 @@ class _SlidersState extends State<Sliders> {
           if (snapshot.hasData) {
             List<NewsModel> data = snapshot.data ?? [];
             return CarouselSlider.builder(
-              itemCount: 15,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      Container(
-                height: 120,
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                width: double.infinity,
-                color: Colors.blue,
-                child: Text(itemIndex.toString()),
-              ),
-              options: CarouselOptions(autoPlay: true, height: 120),
+              itemCount: 8,
+              itemBuilder: (BuildContext context, int itemIndex,
+                      int pageViewIndex) =>
+                  Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
+                      width: double.infinity,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Stack(
+                        clipBehavior: Clip.antiAlias,
+                        children: [
+                          CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: data[itemIndex].urlToImage.toString(),
+                              width: double.infinity,
+                              placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) => Container(
+                                    padding: const EdgeInsets.only(right: 30),
+                                    child: Image.asset(
+                                      "assets/images/icon/logopng.png",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )),
+                        ],
+                      )),
+              options: CarouselOptions(
+                  autoPlay: true, height: 140, clipBehavior: Clip.antiAlias),
             );
           }
           return const Center(child: CircularProgressIndicator());
