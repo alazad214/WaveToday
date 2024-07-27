@@ -45,7 +45,7 @@ dependencies:
   another_carousel_pro: ^1.0.2
   cached_network_image:
   carousel_slider: ^4.2.1
-  shimmer: ^3.0.0
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

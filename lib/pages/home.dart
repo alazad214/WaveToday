@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wavetoday/utils/app_color.dart';
 import 'package:wavetoday/widgets/PopupMenu.dart';
 import 'package:wavetoday/widgets/all_news.dart';
 import 'package:wavetoday/widgets/breaking_news.dart';
 import 'package:wavetoday/widgets/sliders.dart';
 
 class Homepage extends StatelessWidget {
-  Homepage({super.key});
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class Homepage extends StatelessWidget {
       length: 2,
       child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.indigoAccent,
+            backgroundColor: AppColor.navyC,
             title: const Text.rich(TextSpan(children: [
               TextSpan(
                   text: "News ",

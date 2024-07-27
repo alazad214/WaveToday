@@ -1,8 +1,8 @@
-import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:wavetoday/service/news_service.dart';
+import 'package:wavetoday/widgets/slider_simmer.dart';
 
 import '../model/news_model.dart';
 
@@ -57,7 +57,7 @@ class _SlidersState extends State<Sliders> {
                   autoPlay: true, height: 140, clipBehavior: Clip.antiAlias),
             );
           }
-          return const Center(child: CircularProgressIndicator());
+          return SliderSimmer();
         });
   }
 }
