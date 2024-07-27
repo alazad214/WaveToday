@@ -24,18 +24,17 @@ class _SlidersState extends State<Sliders> {
             List<NewsModel> data = snapshot.data ?? [];
             return CarouselSlider.builder(
               itemCount: 15,
-              itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-                  Container(
-                    height: 120,
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                    width: double.infinity,
-                    color: Colors.blue,
-                    child: Text(itemIndex.toString()),
-                  ),
-              options: CarouselOptions(
-                autoPlay: true,
-                height: 120
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Container(
+                height: 120,
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                width: double.infinity,
+                color: Colors.blue,
+                child: Text(itemIndex.toString()),
               ),
+              options: CarouselOptions(autoPlay: true, height: 120),
             );
           }
           return const Center(child: CircularProgressIndicator());

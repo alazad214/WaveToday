@@ -34,18 +34,22 @@ class BreakingNews extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CachedNetworkImage(
-                            height: 120,
-                            width: w / 2.5,
-                            fit: BoxFit.cover,
-                            imageUrl: articleModel[index].urlToImage.toString(),
-                            placeholder: (context, url) => const Center(
-                                child: CircularProgressIndicator()),
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error),
-                          ),
+                              height: 120,
+                              width: w / 2.5,
+
+                              fit: BoxFit.cover,
+                              imageUrl:
+                                  articleModel[index].urlToImage.toString(),
+                              placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) =>
+                                  Container(
+                                    padding: EdgeInsets.only(right: 30),
+                                    child: Image.asset("assets/images/icon/logopng.png",),
+                                  )),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(5),
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -94,7 +98,7 @@ class BreakingNews extends StatelessWidget {
                 itemCount: articleModel.length,
               );
             } else {}
-            return Shimmer();
+            return const Shimmer();
           }),
     );
   }
