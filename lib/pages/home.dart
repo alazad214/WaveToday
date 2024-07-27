@@ -16,7 +16,7 @@ class Homepage extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppColor.navyC,
-            title: const Text.rich(TextSpan(children: [
+            title:  const Text.rich(TextSpan(children: [
               TextSpan(
                   text: "News ",
                   style: TextStyle(
@@ -26,8 +26,9 @@ class Homepage extends StatelessWidget {
               TextSpan(
                   text: "Wave",
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 18,
+                      fontFamily: "Lato_Ragular",
                       fontWeight: FontWeight.bold)),
             ])),
             actions: [
@@ -40,13 +41,13 @@ class Homepage extends StatelessWidget {
               const Popupmenu(),
             ],
           ),
-          body: Column(
+          body: const Column(
             children: [
-              const Sliders(),
-              const TabBar(
+              Sliders(),
+              TabBar(
                 indicatorColor: Colors.indigoAccent,
                 labelStyle:
-                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: "Lato"),
                 labelColor: Colors.indigoAccent,
                 unselectedLabelColor: Colors.grey,
                 dividerColor: Colors.transparent,
@@ -59,8 +60,14 @@ class Homepage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 15,),
-              Flexible(child: TabBarView(children: [ AllNews(),BreakingNews(),]))
+              SizedBox(
+                height: 15,
+              ),
+              Flexible(
+                  child: TabBarView(children: [
+                AllNews(),
+                BreakingNews(),
+              ]))
             ],
           )),
     );

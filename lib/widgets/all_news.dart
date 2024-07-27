@@ -7,9 +7,16 @@ import 'package:wavetoday/widgets/shimmer.dart';
 import '../service/news_service.dart';
 import '../utils/app_color.dart';
 
-class AllNews extends StatelessWidget {
-  AllNews({super.key});
+class AllNews extends StatefulWidget {
+  const AllNews({super.key});
+
+  @override
+  State<AllNews> createState() => _AllNewsState();
+}
+
+class _AllNewsState extends State<AllNews> {
   NewsService newsService = NewsService();
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;

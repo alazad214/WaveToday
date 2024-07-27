@@ -1,17 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:wavetoday/model/news_model.dart';
 import 'package:wavetoday/widgets/shimmer.dart';
-
 import '../pages/news_details.dart';
 import '../service/news_service.dart';
 import '../utils/app_color.dart';
 
-class BreakingNews extends StatelessWidget {
-  BreakingNews({super.key});
+class BreakingNews extends StatefulWidget {
+  const BreakingNews({super.key});
+  @override
+  State<BreakingNews> createState() => _BreakingNewsState();
+}
+class _BreakingNewsState extends State<BreakingNews> {
   NewsService newsService = NewsService();
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
