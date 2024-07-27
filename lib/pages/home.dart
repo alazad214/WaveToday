@@ -1,18 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:wavetoday/widgets/PopupMenu.dart';
 import 'package:wavetoday/widgets/all_news.dart';
 import 'package:wavetoday/widgets/breaking_news.dart';
-import 'package:wavetoday/widgets/shimmer.dart';
 import 'package:wavetoday/widgets/sliders.dart';
 
 class Homepage extends StatelessWidget {
   Homepage({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -61,11 +58,8 @@ class Homepage extends StatelessWidget {
                   ),
                 ],
               ),
-              Flexible(
-                  child: TabBarView(children: [
-                BreakingNews(),
-                    AllNews()
-              ]))
+              const SizedBox(height: 15,),
+              Flexible(child: TabBarView(children: [BreakingNews(), AllNews()]))
             ],
           )),
     );

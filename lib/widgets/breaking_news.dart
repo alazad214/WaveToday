@@ -35,17 +35,17 @@ class BreakingNews extends StatelessWidget {
                         children: [
                           CachedNetworkImage(
                               height: 120,
-                              width: w / 2.5,
-
+                              width: w / 3.5,
                               fit: BoxFit.cover,
                               imageUrl:
                                   articleModel[index].urlToImage.toString(),
                               placeholder: (context, url) => const Center(
                                   child: CircularProgressIndicator()),
-                              errorWidget: (context, url, error) =>
-                                  Container(
-                                    padding: EdgeInsets.only(right: 30),
-                                    child: Image.asset("assets/images/icon/logopng.png",),
+                              errorWidget: (context, url, error) => Container(
+                                    padding: const EdgeInsets.only(right: 30),
+                                    child: Image.asset(
+                                      "assets/images/icon/logopng.png",
+                                    ),
                                   )),
                           Expanded(
                             child: Padding(

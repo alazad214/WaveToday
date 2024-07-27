@@ -1,9 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import '../utils/app_color.dart';
 
 class Shimmer extends StatelessWidget {
   const Shimmer({super.key});
@@ -11,74 +7,78 @@ class Shimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    return Container(
-      height: 120,
-      clipBehavior: Clip.antiAlias,
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.4),
-        borderRadius: BorderRadius.circular(10)
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 15),
-            height: 110,
-            width: w / 6,
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, inder) {
+          return Container(
+            height: 120,
             clipBehavior: Clip.antiAlias,
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-            child: Lottie.asset("assets/anim/shimmer.json", fit: BoxFit.cover),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 10,
-                width: w /4,
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(vertical: 10),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-                child:
-                    Lottie.asset("assets/anim/shimmer.json", fit: BoxFit.cover),
-              ),
-              Container(
-                height: 10,
-                width: w / 2.5,
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(vertical: 10),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-                child:
-                    Lottie.asset("assets/anim/shimmer.json", fit: BoxFit.cover),
-              ),
-              Container(
-                height: 10,
-                width: w / 1.5,
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(vertical: 10),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-                child:
-                    Lottie.asset("assets/anim/shimmer.json", fit: BoxFit.cover),
-              ),
-              Container(
-                height: 10,
-                width: w / 1.6,
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.symmetric(vertical: 10),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-                child:
-                    Lottie.asset("assets/anim/shimmer.json", fit: BoxFit.cover),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  height: 110,
+                  width: w / 6,
+                  clipBehavior: Clip.antiAlias,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+                  child: Lottie.asset("assets/anim/shimmer.json",
+                      fit: BoxFit.cover),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 10,
+                      width: w / 4,
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Lottie.asset("assets/anim/shimmer.json",
+                          fit: BoxFit.cover),
+                    ),
+                    Container(
+                      height: 10,
+                      width: w / 2.5,
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Lottie.asset("assets/anim/shimmer.json",
+                          fit: BoxFit.cover),
+                    ),
+                    Container(
+                      height: 10,
+                      width: w / 1.5,
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Lottie.asset("assets/anim/shimmer.json",
+                          fit: BoxFit.cover),
+                    ),
+                    Container(
+                      height: 10,
+                      width: w / 1.6,
+                      clipBehavior: Clip.antiAlias,
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Lottie.asset("assets/anim/shimmer.json",
+                          fit: BoxFit.cover),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        });
   }
 }
