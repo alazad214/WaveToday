@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wavetoday/model/news_model.dart';
+import 'package:wavetoday/pages/news_details.dart';
 import 'package:wavetoday/widgets/shimmer.dart';
 import '../service/news_service.dart';
 import '../utils/app_color.dart';
@@ -20,7 +22,9 @@ class AllNews extends StatelessWidget {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => NewsDetails(newsModel: articleModel[index]));
+                    },
                     child: Container(
                       height: 110,
                       clipBehavior: Clip.antiAlias,
@@ -37,21 +41,21 @@ class AllNews extends StatelessWidget {
                               width: w / 3.5,
                               fit: BoxFit.cover,
                               imageUrl:
-                              articleModel[index].urlToImage.toString(),
+                                  articleModel[index].urlToImage.toString(),
                               placeholder: (context, url) => const Center(
                                   child: CircularProgressIndicator()),
                               errorWidget: (context, url, error) => Container(
-                                padding: const EdgeInsets.only(right: 30),
-                                child: Image.asset(
-                                  "assets/images/icon/logopng.png",
-                                ),
-                              )),
+                                    padding: const EdgeInsets.only(right: 30),
+                                    child: Image.asset(
+                                      "assets/images/icon/logopng.png",
+                                    ),
+                                  )),
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.all(5),
                               child: Column(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
                                     articleModel[index].title.toString(),

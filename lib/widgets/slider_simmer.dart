@@ -17,16 +17,9 @@ class SliderSimmer extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(5.0)),
-              child: Stack(
-                clipBehavior: Clip.antiAlias,
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(color: Colors.grey),
-                    child: Lottie.asset("assets/anim/shimmer.json",
-                        fit: BoxFit.cover),
-                  )
-                ],
-              )),
+              child: Lottie.asset("assets/anim/shimmer.json",
+                  fit: BoxFit.cover),
+          ),
       options: CarouselOptions(
           autoPlay: true, height: 140, clipBehavior: Clip.antiAlias),
     );
