@@ -25,7 +25,8 @@ class Sliders extends StatelessWidget {
               for (int i = 0; i < 10; i++)
                 Container(
                   alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
