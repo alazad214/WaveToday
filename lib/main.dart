@@ -1,10 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:wavetoday/pages/splash.dart';
-
-
+import 'controller/theme_controller.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -14,18 +13,23 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final ThemeController themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'WaveToday News',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode:
+          themeController.isDark.value ? ThemeMode.dark : ThemeMode.light,
+      home: const SplashPage(),
     );
   }
 }

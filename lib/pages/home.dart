@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:wavetoday/utils/app_color.dart';
 import 'package:wavetoday/widgets/PopupMenu.dart';
 import 'package:wavetoday/widgets/all_news.dart';
 import 'package:wavetoday/widgets/breaking_news.dart';
 import 'package:wavetoday/widgets/sliders.dart';
 
-class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+import '../controller/theme_controller.dart';
 
+class Homepage extends StatelessWidget {
+   Homepage({super.key});
+  final ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -33,9 +37,11 @@ class Homepage extends StatelessWidget {
             ])),
             actions: [
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.dark_mode,
+                  onPressed: () {
+                    themeController.toggleTheme();
+                  },
+                  icon:  Icon(
+                    themeController.isDark.value?Icons.dark_mode:Icons.light_mode,
                     color: Colors.white,
                   )),
               const Popupmenu(),

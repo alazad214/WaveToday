@@ -46,6 +46,7 @@ dependencies:
   cached_network_image:
   carousel_slider: ^4.2.1
   url_launcher: ^6.3.0
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
@@ -101,9 +102,9 @@ flutter:
    - family: Lato
      fonts:
        - asset: assets/fonts/Lato.ttf
-   - family: Lato_Ragular
+   - family: Lato2
      fonts:
-       - asset: assets/fonts/Lato_Ragular.ttf
+       - asset: assets/fonts/Lato2.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
