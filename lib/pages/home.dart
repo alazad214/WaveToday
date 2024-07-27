@@ -51,15 +51,15 @@ class Homepage extends StatelessWidget {
                 dividerColor: Colors.transparent,
                 tabs: [
                   Tab(
-                    text: "Breaking",
+                    text: "All News",
                   ),
                   Tab(
-                    text: "All",
+                    text: "Top News",
                   ),
                 ],
               ),
               const SizedBox(height: 15,),
-              Flexible(child: TabBarView(children: [BreakingNews(), AllNews()]))
+              Flexible(child: TabBarView(children: [ AllNews(),BreakingNews(),]))
             ],
           )),
     );
